@@ -3,18 +3,19 @@
 // IMPORT DEL COMPONENTE
 import axios from "axios";
 import AppHeader from "./components/AppHeader.vue";
+import ProjectList from "./components/ProjectList.vue";
 
 // DEFINIZIONE DEL COMPONENTE IN PAGINA
 export default {
   data() {
     return {
-      title: "Hello!",
+      title: "Vue Portfolio",
       projects: [],
     }
   },
 
   components: {
-    AppHeader
+    AppHeader, ProjectList,
   },
 
   methods: {
@@ -34,11 +35,8 @@ export default {
 </script>
 
 <template>
-  <AppHeader></AppHeader>
-  <h1>{{ title }}</h1>
-  <ul>
-    <li v-for="project in projects">{{ project.name }}</li>
-  </ul>
+  <AppHeader :title="title"></AppHeader>
+  <ProjectList :projects="projects" title="Più recenti" class="my-3"></ProjectList>
 </template>
 
 
